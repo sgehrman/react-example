@@ -1,6 +1,6 @@
 .box {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   margin: 6px;
   border: 1px solid steelblue;
   display: flex;
@@ -10,4 +10,7 @@
 
 .box:nth-child(odd) {
   background-color: #ddd;
+
+  height: 45px;
+  width: 45px;
 }
