@@ -12,7 +12,7 @@ function FlexContainer() {
   const boxes = []
 
   for (let i = 0; i < 16; i++) {
-    boxes.push(<NumberBox title={i.toString()} />)
+    boxes.push(<NumberBox key={i} title={i.toString()} />)
   }
 
   const alignItemsOptions = ['stretch', 'center', 'flex-start', 'flex-end']
