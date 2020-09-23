@@ -9,6 +9,7 @@ function FlexContainer() {
   const [alignContent, setAlignContent] = React.useState('flex-start')
   const [justifyContent, setJustifyContent] = React.useState('flex-start')
   const [flexDirection, setFlexDirection] = React.useState('row')
+  const [flexWrap, setFlexWrap] = React.useState('wrap')
 
   const boxes = []
 
@@ -16,6 +17,7 @@ function FlexContainer() {
     boxes.push(<NumberBox key={i} title={i.toString()} />)
   }
 
+  const flexWrapOptions = ['wrap', 'nowrap']
   const flexDirectionOptions = ['row', 'column']
   const alignItemsOptions = ['stretch', 'center', 'flex-start', 'flex-end']
   const alignContentsOptions = ['stretch', 'center', 'flex-start', 'flex-end', 'space-between', 'space-around']
@@ -43,6 +45,9 @@ function FlexContainer() {
       case 'flex-direction':
         setFlexDirection(item)
         break
+      case 'flex-wrap':
+        setFlexWrap(item)
+        break
       default:
         console.log('onMenuSelect: default case hit.')
         break
@@ -50,10 +55,11 @@ function FlexContainer() {
   }
 
   const boxContainer = {
+    overflow: 'auto',
     border: '6px solid black',
     padding: '10px',
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap,
     height: '40vh',
     width: '60vw',
     maxHeight: '400px',
@@ -90,6 +96,10 @@ function FlexContainer() {
           <div className={styles.controlMenuItem}>
             <FlexPopupMenu title="align-content" options={alignContentsOptions} onMenuSelect={onMenuSelect} />
             <div className={styles.controlMenuValue}>{alignContent}</div>
+          </div>
+          <div className={styles.controlMenuItem}>
+            <FlexPopupMenu title="flex-wrap" options={flexWrapOptions} onMenuSelect={onMenuSelect} />
+            <div className={styles.controlMenuValue}>{flexWrap}</div>
           </div>
         </div>
       </div>
