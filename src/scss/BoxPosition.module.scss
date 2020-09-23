@@ -12,23 +12,19 @@
   color: #fff;
 }
 
-.boxContainer {
-  border: 6px solid black;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  height: 60vh;
-  width: 60vw;
-  background-color: #eee;
-  //   align-items: stretch;
-  //   align-content: center;
-  //   justify-content: center;
-  // justify-items: flex-start;
-}
-
 .controlBox {
   display: flex;
   margin-top: 20px;
   justify-content: center;
   flex-direction: column;
+}
+
+.controlMenuItem {
+  display: flex;
+  align-items: center;
+}
+
+.controlMenuValue {
+  padding-left: 4px;
+  color: steelblue;
 }

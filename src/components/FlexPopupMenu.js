@@ -25,6 +25,7 @@ function FlexPopupMenu(props) {
 
   const buttonStyle = {
     color: 'white',
+    textTransform: 'lowercase',
   }
 
   const menuItems = []
@@ -40,7 +41,7 @@ function FlexPopupMenu(props) {
   return (
     <div>
       <Button style={buttonStyle} onClick={handleClick}>
-        {title}
+        {`${title}:`}
       </Button>
       <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         {menuItems}

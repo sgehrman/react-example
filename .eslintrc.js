@@ -23,7 +23,6 @@ module.exports = {
     'no-plusplus': 0,
     'no-await-in-loop': 0,
     'consistent-return': 0,
-    'default-case': 0,
     semi: 0,
     'object-curly-newline': 0,
     'operator-linebreak': 0,
