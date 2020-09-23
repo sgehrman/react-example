@@ -1,38 +1,21 @@
 import React from 'react'
-import styles from '../scss/Shared.module.scss'
 import gridStyles from '../scss/GridContainer.module.scss'
 import FlexPopupMenu from './FlexPopupMenu'
 import NumberBox from './NumberBox'
 
 function GridBox(props) {
-  const [alignItems, setAlignItems] = React.useState('center')
-  const [alignContent, setAlignContent] = React.useState('flex-start')
-  const [justifyContent, setJustifyContent] = React.useState('flex-start')
-
   const { className, title } = props
+  const [classOption, setClassOption] = React.useState(className)
 
   const boxes = []
   for (let i = 0; i < 16; i++) {
     boxes.push(<NumberBox key={i} title={i.toString()} />)
   }
 
-  const alignItemsOptions = ['stretch', 'center', 'flex-start', 'flex-end']
+  const classOptions = ['box0', 'box1', 'box2', 'box3']
 
-  const onMenuSelect = (property, item) => {
-    switch (property) {
-      case 'align-items':
-        setAlignItems(item)
-        break
-      case 'align-content':
-        setAlignContent(item)
-        break
-      case 'justify-content':
-        setJustifyContent(item)
-        break
-      default:
-        console.log('onMenuSelect: default case hit.')
-        break
-    }
+  const onMenuSelect = (_, item) => {
+    setClassOption(item)
   }
 
   const box0 = {
@@ -56,7 +39,7 @@ function GridBox(props) {
   }
 
   let boxClass
-  switch (className) {
+  switch (classOption) {
     case 'box0':
       boxClass = box0
       break
@@ -78,7 +61,7 @@ function GridBox(props) {
     <div style={boxClass}>
       {title}
       <div className={gridStyles.popup}>
-        <FlexPopupMenu title="" morePopup options={alignItemsOptions} onMenuSelect={onMenuSelect} />
+        <FlexPopupMenu title="" morePopup options={classOptions} onMenuSelect={onMenuSelect} />
       </div>
     </div>
   )
