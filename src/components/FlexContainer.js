@@ -1,6 +1,5 @@
 import React from 'react'
-import shared from '../scss/Shared.module.scss'
-import styles from '../scss/FlexContainer.module.scss'
+import styles from '../scss/Shared.module.scss'
 import FlexPopupMenu from './FlexPopupMenu'
 import NumberBox from './NumberBox'
 
@@ -73,7 +72,7 @@ function FlexContainer() {
 
   return (
     <div>
-      <div className={shared.header}>Flexbox Layout</div>
+      <div className={styles.header}>Flexbox Layout</div>
 
       <div className={styles.layoutBox}>
         <div style={boxContainer}>{boxes}</div>

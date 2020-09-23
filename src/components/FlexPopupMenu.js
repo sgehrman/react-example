@@ -1,13 +1,14 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import { Button, IconButton } from '@material-ui/core'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import PropTypes from 'prop-types'
+import { MoreVert } from '@material-ui/icons'
 
 function FlexPopupMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const { title, options, onMenuSelect } = props
+  const { title, options, onMenuSelect, morePopup } = props
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -38,12 +39,24 @@ function FlexPopupMenu(props) {
     )
   })
 
+  let popup = (
+    <Button style={buttonStyle} onClick={handleClick}>
+      {`${title}:`}
+    </Button>
+  )
+
+  if (morePopup) {
+    popup = (
+      <IconButton onClick={handleClick}>
+        <MoreVert />
+      </IconButton>
+    )
+  }
+
   return (
     <div>
-      <Button style={buttonStyle} onClick={handleClick}>
-        {`${title}:`}
-      </Button>
-      <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+      {popup}
+      <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         {menuItems}
       </Menu>
     </div>
@@ -54,6 +67,11 @@ FlexPopupMenu.propTypes = {
   title: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onMenuSelect: PropTypes.func.isRequired,
+  morePopup: PropTypes.bool,
+}
+
+FlexPopupMenu.defaultProps = {
+  morePopup: false,
 }
 
 export default FlexPopupMenu
