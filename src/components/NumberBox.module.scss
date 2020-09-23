@@ -1,0 +1,12 @@
+.box {
+  height: 60px;
+  width: 60px;
+  border: 1px solid steelblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:nth-child(odd) {
+  background-color: #ddd;
+}
