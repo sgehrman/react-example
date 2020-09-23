@@ -1,9 +1,10 @@
 import React from 'react'
-import styles from '../scss/BoxPosition.module.scss'
+import shared from '../scss/Shared.module.scss'
+import styles from '../scss/FlexContainer.module.scss'
 import FlexPopupMenu from './FlexPopupMenu'
 import NumberBox from './NumberBox'
 
-function BoxPositions() {
+function FlexContainer() {
   const [alignItems, setAlignItems] = React.useState('center')
   const [alignContent, setAlignContent] = React.useState('flex-start')
   const [justifyContent, setJustifyContent] = React.useState('flex-start')
@@ -60,7 +61,9 @@ function BoxPositions() {
 
   return (
     <div>
-      <div className={styles.centerBox}>
+      <div className={shared.header}>Flexbox Layout</div>
+
+      <div className={styles.layoutBox}>
         <div style={boxContainer}>{boxes}</div>
       </div>
 
@@ -84,4 +87,4 @@ function BoxPositions() {
   )
 }
 
-export default BoxPositions
+export default FlexContainer

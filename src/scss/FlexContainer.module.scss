@@ -1,12 +1,11 @@
-.centerBox {
+.layoutBox {
   display: flex;
-  margin-top: 20px;
   justify-content: center;
 }
 
 .centerColumn {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
   align-items: center;
   flex-direction: column;
   color: #fff;

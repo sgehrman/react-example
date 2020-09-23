@@ -1,19 +1,25 @@
 import React from 'react'
 import { GitHub } from '@material-ui/icons'
 import { IconButton } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import styles from '../scss/Header.module.scss'
 
 function Header() {
-  const clickGithub = () => {
-    console.log('https://github.com/sgehrman/react-example')
-  }
-
   const github = 'https://github.com/sgehrman/react-example'
 
   return (
     <header style={header}>
       <div style={titleColumn}>
         <div style={title}>CSS Playground</div>
-        <div style={subtitle}>Written in React</div>
+        <div className={styles.linkBar}>
+          <Link to="/" style={subtitle}>
+            Flexbox
+          </Link>
+          <div className={styles.spacer}>|</div>
+          <Link to="/grid" style={subtitle}>
+            Grid
+          </Link>
+        </div>
       </div>
 
       <div style={githubButton}>
@@ -39,6 +45,10 @@ const titleColumn = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+
+  a: {
+    textDecoration: 'none',
+  },
 }
 
 const title = {

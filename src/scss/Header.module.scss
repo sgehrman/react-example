@@ -1,0 +1,13 @@
+.linkBar {
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .spacer {
+    padding: 0 8px;
+  }
+}
