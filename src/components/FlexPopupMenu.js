@@ -29,13 +29,13 @@ function FlexPopupMenu(props) {
 
   const menuItems = []
 
-  for (let option of options) {
+  options.forEach((option) => {
     menuItems.push(
       <MenuItem key={option} onClick={() => handleMenuItem(option)}>
         {option}
       </MenuItem>,
     )
-  }
+  })
 
   return (
     <div>
@@ -51,7 +51,7 @@ function FlexPopupMenu(props) {
 
 FlexPopupMenu.propTypes = {
   title: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onMenuSelect: PropTypes.func.isRequired,
 }
 

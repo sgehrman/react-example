@@ -1,11 +1,11 @@
-import React from 'react'
-import { GitHub } from '@material-ui/icons'
-import { IconButton } from '@material-ui/core'
+import React from 'react';
+import { GitHub } from '@material-ui/icons';
+import { IconButton } from '@material-ui/core';
 
 function Header() {
   const clickGithub = () => {
-    console.log('github button clicked')
-  }
+    console.log('github button clicked');
+  };
 
   return (
     <header style={header}>
@@ -20,7 +20,7 @@ function Header() {
         </IconButton>
       </div>
     </header>
-  )
+  );
 }
 
 const header = {
@@ -31,24 +31,24 @@ const header = {
   backgroundColor: '#111',
   padding: '8px',
   flexDirection: 'column',
-}
+};
 
 const titleColumn = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-}
+};
 
 const title = {
   fontSize: 'calc(10px + 1.1vmin)',
   fontWeight: 'bold',
-}
+};
 
 const subtitle = {
   fontSize: 'calc(10px + .6vmin)',
   fontWeight: 'bold',
   color: 'steelblue',
-}
+};
 
 const githubButton = {
   position: 'absolute',
@@ -59,6 +59,6 @@ const githubButton = {
   top: '0px',
   bottom: '0px',
   width: '24px',
-}
+};
 
-export default Header
+export default Header;
