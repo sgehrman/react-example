@@ -2,68 +2,69 @@ import React from 'react'
 import gridStyles from '../scss/GridContainer.module.scss'
 import FlexPopupMenu from './FlexPopupMenu'
 import NumberBox from './NumberBox'
+import styles from '../scss/Shared.module.scss'
 
 function GridBox(props) {
-  const { className, title } = props
-  const [classOption, setClassOption] = React.useState(className)
+  const { className } = props
 
-  const boxes = []
-  for (let i = 0; i < 16; i++) {
-    boxes.push(<NumberBox key={i} title={i.toString()} />)
-  }
+  let gc
+  let gr
 
-  const classOptions = ['box0', 'box1', 'box2', 'box3']
-
-  const onMenuSelect = (_, item) => {
-    setClassOption(item)
-  }
-
-  const box0 = {
-    gridColumn: '1/3',
-    gridRow: '1/3',
-  }
-
-  const box1 = {
-    gridColumn: '3',
-    gridRow: '1/3',
-  }
-
-  const box2 = {
-    gridColumn: '2/4',
-    gridRow: '3',
-  }
-
-  const box3 = {
-    gridColumn: '1',
-    gridRow: '2/4',
-  }
-
-  let boxClass
-  switch (classOption) {
+  switch (className) {
     case 'box0':
-      boxClass = box0
+      gc = '1/3'
+      gr = '1/3'
       break
     case 'box1':
-      boxClass = box1
+      gc = ' 3'
+      gr = '1/3'
       break
     case 'box2':
-      boxClass = box2
+      gc = '2/4'
+      gr = '3'
       break
     case 'box3':
-      boxClass = box3
+      gc = '1 '
+      gr = '2/4'
       break
     default:
       console.log('className invalid')
       break
   }
 
+  const [rowValue, setRowValue] = React.useState(gr)
+  const [columnValue, setColumnValue] = React.useState(gc)
+
+  const boxes = []
+  for (let i = 0; i < 16; i++) {
+    boxes.push(<NumberBox key={i} title={i.toString()} />)
+  }
+
+  const classOptions = ['1', '2', '3', '4', '1/3', '1/4', '1/5', '2/4', '3/5']
+
+  const onRowMenuSelect = (_, item) => {
+    setRowValue(item)
+  }
+
+  const onColumnMenuSelect = (_, item) => {
+    setColumnValue(item)
+  }
+
+  const boxClass = {
+    gridColumn: columnValue,
+    gridRow: rowValue,
+  }
+
   return (
     <div className={gridStyles.gridCard} style={boxClass}>
-      <div>{title}</div>
-      <div>{`col: ${boxClass.gridColumn}`}</div>
-      <div>{`row: ${boxClass.gridRow}`}</div>
-      <div className={gridStyles.popup}>
-        <FlexPopupMenu title="" morePopup options={classOptions} onMenuSelect={onMenuSelect} />
+      <div className={styles.controlMenuItem}>
+        <FlexPopupMenu dark title="Row" options={classOptions} onMenuSelect={onRowMenuSelect} />
+        <div className={styles.controlMenuValue}>{rowValue}</div>
+      </div>
+
+      <div className={styles.controlMenuItem}>
+        <FlexPopupMenu dark title="Column" options={classOptions} onMenuSelect={onColumnMenuSelect} />
+        <div className={styles.controlMenuValue}>{columnValue}</div>
       </div>
     </div>
   )

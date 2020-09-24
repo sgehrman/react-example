@@ -8,7 +8,7 @@ import { MoreVert } from '@material-ui/icons'
 function FlexPopupMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const { title, options, onMenuSelect, morePopup } = props
+  const { title, options, onMenuSelect, morePopup, dark } = props
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -25,8 +25,11 @@ function FlexPopupMenu(props) {
   }
 
   const buttonStyle = {
-    color: 'white',
+    color: dark ? 'black' : 'white',
     textTransform: 'lowercase',
+    border: dark ? '1px solid #555' : 'none',
+    padding: '0px',
+    margin: dark ? '4px 0px' : '0px',
   }
 
   const menuItems = []
@@ -68,10 +71,12 @@ FlexPopupMenu.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onMenuSelect: PropTypes.func.isRequired,
   morePopup: PropTypes.bool,
+  dark: PropTypes.bool,
 }
 
 FlexPopupMenu.defaultProps = {
   morePopup: false,
+  dark: false,
 }
 
 export default FlexPopupMenu

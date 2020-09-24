@@ -8,7 +8,7 @@ function GridContainer() {
   const boxes = []
 
   for (let i = 0; i < 4; i++) {
-    boxes.push(<GridBox key={i} title={`box${i}`} className={`box${i}`} />)
+    boxes.push(<GridBox key={i} className={`box${i}`} />)
   }
 
   return (
