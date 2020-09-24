@@ -5,10 +5,6 @@ import FlexPopupMenu from './FlexPopupMenu'
 import GridBox from './GridBox'
 
 function GridContainer() {
-  const [alignItems, setAlignItems] = React.useState('center')
-  const [alignContent, setAlignContent] = React.useState('flex-start')
-  const [justifyContent, setJustifyContent] = React.useState('flex-start')
-
   const boxes = []
 
   for (let i = 0; i < 4; i++) {
@@ -19,7 +15,7 @@ function GridContainer() {
     <div>
       <div className={styles.header}>Grid Layout</div>
       <div className={styles.layoutBox}>
-        <div className={gridStyles.wrapper}>{boxes}</div>
+        <div className={gridStyles.gridContainer}>{boxes}</div>
       </div>
     </div>
   )

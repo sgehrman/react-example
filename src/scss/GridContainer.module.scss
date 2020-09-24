@@ -1,4 +1,4 @@
-.wrapper {
+.gridContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
@@ -16,7 +16,7 @@
   // align-items:stretch;
 }
 
-.wrapper > div {
+.gridCard {
   position: relative;
   border: 1px solid steelblue;
 
@@ -30,6 +30,6 @@
   }
 }
 
-.wrapper > div:nth-child(odd) {
+.gridCard:nth-child(odd) {
   background: rgba($color: #aaa, $alpha: 0.5);
 }

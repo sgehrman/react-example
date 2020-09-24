@@ -58,8 +58,10 @@ function GridBox(props) {
   }
 
   return (
-    <div style={boxClass}>
-      {title}
+    <div className={gridStyles.gridCard} style={boxClass}>
+      <div>{title}</div>
+      <div>{`col: ${boxClass.gridColumn}`}</div>
+      <div>{`row: ${boxClass.gridRow}`}</div>
       <div className={gridStyles.popup}>
         <FlexPopupMenu title="" morePopup options={classOptions} onMenuSelect={onMenuSelect} />
       </div>
