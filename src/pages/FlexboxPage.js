@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from '../scss/Shared.module.scss'
-import FlexPopupMenu from './FlexPopupMenu'
-import NumberBox from './NumberBox'
+import FlexPopupMenu from '../components/FlexPopupMenu'
+import NumberBox from '../components/NumberBox'
 
-function FlexContainer() {
+function FlexboxPage() {
   const [alignItems, setAlignItems] = React.useState('center')
   const [alignContent, setAlignContent] = React.useState('flex-start')
   const [justifyContent, setJustifyContent] = React.useState('flex-start')
@@ -106,4 +106,4 @@ function FlexContainer() {
   )
 }
 
-export default FlexContainer
+export default FlexboxPage

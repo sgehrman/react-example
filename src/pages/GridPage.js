@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from '../scss/Shared.module.scss'
-import gridStyles from '../scss/GridContainer.module.scss'
-import FlexPopupMenu from './FlexPopupMenu'
-import GridBox from './GridBox'
+import gridStyles from '../scss/GridPage.module.scss'
+import FlexPopupMenu from '../components/FlexPopupMenu'
+import GridBox from '../components/GridBox'
 
-function GridContainer() {
+function GridPage() {
   const boxes = []
 
   for (let i = 0; i < 4; i++) {
@@ -21,4 +21,4 @@ function GridContainer() {
   )
 }
 
-export default GridContainer
+export default GridPage

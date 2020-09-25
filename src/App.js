@@ -1,16 +1,18 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Header from './components/Header'
-import FlexContainer from './components/FlexContainer'
-import GridContainer from './components/GridContainer'
+import FlexboxPage from './pages/FlexboxPage'
+import GridPage from './pages/GridPage'
+import TodoPage from './pages/TodoPage'
 
 function App() {
   return (
     <div style={appStyles}>
       <BrowserRouter>
         <Header />
-        <Route exact path="/" component={FlexContainer} />
-        <Route path="/grid" component={GridContainer} />
+        <Route exact path="/" component={FlexboxPage} />
+        <Route path="/grid" component={GridPage} />
+        <Route path="/todo" component={TodoPage} />
       </BrowserRouter>
     </div>
   )

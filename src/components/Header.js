@@ -19,6 +19,10 @@ function Header() {
           <NavLink exact to="/grid" style={link} activeStyle={activeLink}>
             Grid
           </NavLink>
+          <div className={styles.spacer}>|</div>
+          <NavLink exact to="/todo" style={link} activeStyle={activeLink}>
+            Todo
+          </NavLink>
         </div>
       </div>
 

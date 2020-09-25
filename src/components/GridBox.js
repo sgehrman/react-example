@@ -1,5 +1,5 @@
 import React from 'react'
-import gridStyles from '../scss/GridContainer.module.scss'
+import gridStyles from '../scss/GridPage.module.scss'
 import FlexPopupMenu from './FlexPopupMenu'
 import NumberBox from './NumberBox'
 import styles from '../scss/Shared.module.scss'
