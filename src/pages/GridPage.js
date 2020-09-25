@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../scss/Shared.module.scss'
 import gridStyles from '../scss/GridPage.module.scss'
-import FlexPopupMenu from '../components/FlexPopupMenu'
+import PageHeader from '../components/PageHeader'
 import GridBox from '../components/GridBox'
 
 function GridPage() {
@@ -13,7 +13,8 @@ function GridPage() {
 
   return (
     <div>
-      <div className={styles.header}>Grid Layout</div>
+      <PageHeader title="Grid Layout" />
+
       <div className={styles.layoutBox}>
         <div className={gridStyles.gridContainer}>{boxes}</div>
       </div>

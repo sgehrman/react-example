@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../scss/Shared.module.scss'
 import FlexPopupMenu from '../components/FlexPopupMenu'
 import NumberBox from '../components/NumberBox'
+import PageHeader from '../components/PageHeader'
 
 function FlexboxPage() {
   const [alignItems, setAlignItems] = React.useState('center')
@@ -72,7 +73,7 @@ function FlexboxPage() {
 
   return (
     <div>
-      <div className={styles.header}>Flexbox Layout</div>
+      <PageHeader title="Flexbox Layout" />
 
       <div className={styles.layoutBox}>
         <div style={boxContainer}>{boxes}</div>

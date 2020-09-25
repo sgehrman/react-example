@@ -1,0 +1,11 @@
+.todoBox {
+  display: flex;
+
+  flex-basis: 60vw;
+  max-width: 600px;
+  background-color: white;
+
+  padding: 20px;
+
+  border: 6px solid black;
+}
