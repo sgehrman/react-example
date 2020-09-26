@@ -8,13 +8,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.box:nth-child(odd) {
-  background-color: #ddd;
+  :nth-child(odd) {
+    background-color: #ddd;
 
-  height: 45px;
-  width: 45px;
-  min-height: 45px;
-  min-width: 45px;
+    height: 45px;
+    width: 45px;
+    min-height: 45px;
+    min-width: 45px;
+  }
 }

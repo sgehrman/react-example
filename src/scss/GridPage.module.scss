@@ -22,8 +22,8 @@
     bottom: 0px;
     right: 0px;
   }
-}
 
-.gridCard:nth-child(odd) {
-  background: rgba($color: #aaa, $alpha: 0.5);
+  :nth-child(odd) {
+    background: rgba($color: #aaa, $alpha: 0.5);
+  }
 }

@@ -10,7 +10,7 @@ function Header() {
   return (
     <header style={header}>
       <div style={titleColumn}>
-        <div style={title}>CSS Playground</div>
+        <div style={title}>React Playground</div>
         <div className={styles.linkBar}>
           <NavLink exact to="/" style={link} activeStyle={activeLink}>
             Flexbox

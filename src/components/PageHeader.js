@@ -5,9 +5,9 @@ function PageHeader(props) {
   const headerStyles = {
     textAlign: 'center',
     color: 'steelblue',
-    fontSize: '1.3em',
+    fontSize: '1.5em',
     fontWeight: 'bold',
-    padding: '10px',
+    padding: '14px',
   }
 
   return <div style={headerStyles}>{props.title}</div>
