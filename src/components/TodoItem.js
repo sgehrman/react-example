@@ -16,7 +16,7 @@ function TodoItem(props) {
   }
 
   const closeButtonStyle = {
-    color: 'red',
+    color: 'rgba(255,0,0,.5)',
   }
 
   return (
