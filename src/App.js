@@ -1,5 +1,7 @@
 import React from 'react'
+import { v4 } from 'uuid'
 import axios from 'axios'
+import localforage from 'localforage'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Header from './components/Header'
 import FlexboxPage from './pages/FlexboxPage'
@@ -10,19 +12,60 @@ import TodoContext from './js/todoContext'
 function App() {
   const [todos, setTodos] = React.useState([])
 
+  const saveTodos = (todoArray) => {
+    saveToLocalStorage('todos', todoArray)
+    setTodos(todos)
+  }
+
   const contextValue = {
     todos,
-    addTodo: () => {
-      console.log('duh')
+
+    addTodo: (title) => {
+      const record = { id: v4(), title, userId: 1, completed: false }
+
+      saveTodos({ ...todos, record })
+    },
+
+    deleteTodo: (id) => {
+      const newTodos = todos.filter((i) => {
+        if (i.id === id) {
+          return false
+        }
+
+        return false
+      })
+
+      saveTodos(newTodos)
     },
 
     loadTodos: async () => {
       const url = 'https://jsonplaceholder.typicode.com/todos?_limit=20'
 
       const res = await axios.get(url)
-
-      setTodos(res.data)
+      if (res !== null) {
+        saveTodos(res.data)
+      }
     },
+  }
+
+  const loadFromLocalStorage = async (key) => {
+    let value
+
+    try {
+      value = await localforage.getItem(key)
+    } catch (err) {
+      console.log(err)
+    }
+
+    return value
+  }
+
+  const saveToLocalStorage = async (key, value) => {
+    try {
+      localforage.setItem(key, value)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
