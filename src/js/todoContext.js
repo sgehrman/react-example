@@ -5,6 +5,7 @@ const ThemeContext = React.createContext({
   addTodo: (title) => {},
   loadTodos: async () => {},
   deleteTodo: (id) => {},
+  toggleComplete: (id) => {},
 })
 
 export default ThemeContext

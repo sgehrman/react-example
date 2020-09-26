@@ -6,12 +6,12 @@ import styles from '../scss/TodoPage.module.scss'
 import TodoContext from '../js/todoContext'
 
 function TodoItem(props) {
-  const { deleteTodo } = React.useContext(TodoContext)
+  const { deleteTodo, toggleComplete } = React.useContext(TodoContext)
 
   const { todo } = props
 
   const handleChange = (event) => {
-    // sdf
+    toggleComplete(todo.id)
   }
 
   const handleClick = () => {
@@ -26,6 +26,7 @@ function TodoItem(props) {
     <div className={styles.todoItemBox}>
       <FormGroup row>
         <FormControlLabel
+          checked={todo.completed}
           control={<Checkbox checked={todo.isCompleted} onChange={handleChange} />}
           label={todo.title}
         />

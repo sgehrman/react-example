@@ -26,20 +26,20 @@ function App() {
     },
 
     toggleComplete: (id) => {
-      const newTodos = todos.map((i) => {
-        if (i.id === id) {
-          id.completed = !id.completed
+      const newTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
         }
 
-        return id
+        return todo
       })
 
       saveTodos(newTodos)
     },
 
     deleteTodo: (id) => {
-      const newTodos = todos.filter((i) => {
-        if (i.id === id) {
+      const newTodos = todos.filter((todo) => {
+        if (todo.id === id) {
           return false
         }
 
@@ -51,7 +51,6 @@ function App() {
 
     loadTodos: async () => {
       const newTodos = await loadFromLocalStorage('todos')
-      console.log(newTodos)
 
       if (newTodos !== undefined && newTodos !== null) {
         saveTodos(newTodos)
