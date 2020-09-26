@@ -10,7 +10,7 @@ function TodoItem(props) {
 
   const { todo } = props
 
-  const handleChange = (event) => {
+  const handleChange = () => {
     toggleComplete(todo.id)
   }
 
@@ -22,13 +22,17 @@ function TodoItem(props) {
     color: 'rgba(255,0,0,.5)',
   }
 
+  const labelStyle = {
+    textDecoration: todo.completed ? 'line-through' : 'none',
+  }
+
   return (
     <div className={styles.todoItemBox}>
       <FormGroup row>
         <FormControlLabel
           checked={todo.completed}
           control={<Checkbox checked={todo.isCompleted} onChange={handleChange} />}
-          label={todo.title}
+          label={<div style={labelStyle}>{todo.title}</div>}
         />
       </FormGroup>
 
