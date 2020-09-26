@@ -14,6 +14,8 @@ Using PropTypes for prop validation
 
 React hooks
 
+State management using React context
+
 Components for UI
 
 Flexbox and Grid examples

@@ -1,8 +1,10 @@
 .todoBox {
   display: flex;
+  flex-direction: column;
 
   flex-basis: 60vw;
   max-width: 600px;
+  min-height: 400px;
   background-color: white;
 
   padding: 20px;

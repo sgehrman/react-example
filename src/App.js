@@ -1,6 +1,5 @@
 import React from 'react'
 import { v4 } from 'uuid'
-import axios from 'axios'
 import localforage from 'localforage'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Header from './components/Header'
@@ -14,7 +13,7 @@ function App() {
 
   const saveTodos = (todoArray) => {
     saveToLocalStorage('todos', todoArray)
-    setTodos(todos)
+    setTodos(todoArray)
   }
 
   const contextValue = {
@@ -23,7 +22,19 @@ function App() {
     addTodo: (title) => {
       const record = { id: v4(), title, userId: 1, completed: false }
 
-      saveTodos({ ...todos, record })
+      saveTodos([...todos, record])
+    },
+
+    toggleComplete: (id) => {
+      const newTodos = todos.map((i) => {
+        if (i.id === id) {
+          id.completed = !id.completed
+        }
+
+        return id
+      })
+
+      saveTodos(newTodos)
     },
 
     deleteTodo: (id) => {
@@ -32,18 +43,18 @@ function App() {
           return false
         }
 
-        return false
+        return true
       })
 
       saveTodos(newTodos)
     },
 
     loadTodos: async () => {
-      const url = 'https://jsonplaceholder.typicode.com/todos?_limit=20'
+      const newTodos = await loadFromLocalStorage('todos')
+      console.log(newTodos)
 
-      const res = await axios.get(url)
-      if (res !== null) {
-        saveTodos(res.data)
+      if (newTodos !== undefined && newTodos !== null) {
+        saveTodos(newTodos)
       }
     },
   }

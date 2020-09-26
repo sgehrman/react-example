@@ -3,16 +3,19 @@ import PropTypes from 'prop-types'
 import { Checkbox, IconButton, FormGroup, FormControlLabel } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
 import styles from '../scss/TodoPage.module.scss'
+import TodoContext from '../js/todoContext'
 
 function TodoItem(props) {
+  const { deleteTodo } = React.useContext(TodoContext)
+
   const { todo } = props
 
   const handleChange = (event) => {
-    console.log(event)
+    // sdf
   }
 
   const handleClick = () => {
-    console.log('delete')
+    deleteTodo(todo.id)
   }
 
   const closeButtonStyle = {
@@ -39,7 +42,7 @@ function TodoItem(props) {
 
 TodoItem.propTypes = {
   todo: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     title: PropTypes.string,
     userId: PropTypes.number,
     completed: PropTypes.bool,
