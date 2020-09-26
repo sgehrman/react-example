@@ -11,19 +11,12 @@
 }
 
 .gridCard {
-  position: relative;
   border: 1px solid steelblue;
 
   background: rgba($color: #fff, $alpha: 0.5);
   padding: 1em;
 
-  .popup {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-  }
-
-  :nth-child(odd) {
+  &:nth-child(odd) {
     background: rgba($color: #aaa, $alpha: 0.5);
   }
 }
